@@ -15,11 +15,13 @@ public class CountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         res.setContentType("text/html");
         String reset = req.getParameter("reset");
-        if (reset.equals("true")) {
+        if (reset != null) {
             views = 0;
+            res.sendRedirect("/count");
+        } else {
+            views++;
+            PrintWriter out = res.getWriter();
+            out.println("<h2>This page has gotten: " + views + " views</h2>");
         }
-        views++;
-        PrintWriter out = res.getWriter();
-        out.println("<h2>This page has gotten: " + views + " views</h2>");
     }
 }
