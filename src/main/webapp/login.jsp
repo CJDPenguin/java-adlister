@@ -12,16 +12,22 @@
     <title>Login</title>
 </head>
 <body>
-    <form>
+    <form action="login.jsp" method="post">
         <label for="username">Username: </label>
         <input type="text" name="username" id="username">
         <label for="password">Password: </label>
         <input type="password" name="password" id="password">
         <input type="submit">
     </form>
-
-<c:if test="username == admin">
-    
+<c:if test='${param.username != null || param.password != null}'>
+    <c:choose>
+        <c:when test='${param.username.equals("admin") && param.password.equals("password")}'>
+            <% response.sendRedirect("/profile.jsp"); %>
+        </c:when>
+        <c:otherwise>
+            <% response.sendRedirect("/login.jsp"); %>
+        </c:otherwise>
+    </c:choose>
 </c:if>
 </body>
 </html>
