@@ -11,7 +11,7 @@
     <title>Pick a color!</title>
 </head>
 <body>
-<form action="pick-color.jsp" method="post">
+<form action="pick-color" method="post">
     <label for="color">Pick a color, any color!</label>
     <input type="text" id="color" name="color" placeholder="Rainbow!">
     <input type="submit">

@@ -11,7 +11,7 @@
     <title>Pizza Order</title>
 </head>
 <body>
-<form method="post">
+<form action="pizza-order" method="post">
     <label for="crust">Crust</label>
     <select id="crust" name="crust">
         <option value="wheat">Wheat</option>
@@ -33,13 +33,13 @@
     </select>
     <div>Toppings
     <label for="pepperoni">Pepperoni</label>
-    <input type="checkbox" id="pepperoni" name="pepperoni" value="pepperoni">
+    <input type="checkbox" id="pepperoni" name="toppings" value="pepperoni">
     <label for="sausage">Sausage</label>
-    <input type="checkbox" id="sausage" name="sausage" value="sausage">
+    <input type="checkbox" id="sausage" name="toppings" value="sausage">
     <label for="ham">Ham</label>
-    <input type="checkbox" id="ham" name="ham" value="ham">
+    <input type="checkbox" id="ham" name="toppings" value="ham">
     <label for="cheese">Extra Cheese</label>
-    <input type="checkbox" id="cheese" name="cheese" value="cheese">
+    <input type="checkbox" id="cheese" name="toppings" value="cheese">
     </div>
     <label for="address">Delivery Address</label>
     <input type="text" id="address" name="address">
