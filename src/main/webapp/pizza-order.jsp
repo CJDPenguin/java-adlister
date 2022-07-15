@@ -11,7 +11,7 @@
     <title>Pizza Order</title>
 </head>
 <body>
-<form>
+<form method="post">
     <label for="crust">Crust</label>
     <select id="crust" name="crust">
         <option value="wheat">Wheat</option>
