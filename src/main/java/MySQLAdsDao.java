@@ -8,9 +8,8 @@ public class MySQLAdsDao implements Ads{
 
     private Connection connection = null;
 
-    public AdsDao() {
+    public MySQLAdsDao(Config config) {
         try {
-            Config config = new Config();
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                     config.getUrl(),
@@ -44,6 +43,17 @@ public class MySQLAdsDao implements Ads{
 
     @Override
     public Long insert(Ad ad) {
+        try {
+            Statement stmnt = connection.createStatement();
+            String insert = "INSERT INTO ads (user_id, title, description) VALUES (" + ad.getUserId() + ", '" + ad.getTitle() + "', '" + ad.getDescription() + "');";
+            stmnt.executeUpdate(insert, stmnt.RETURN_GENERATED_KEYS);
+            ResultSet rs = stmnt.getGeneratedKeys();
+            if( rs.next()) {
+                return rs.getLong(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error connecting to the database.", e);
+        }
         return null;
     }
 }

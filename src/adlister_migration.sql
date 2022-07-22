@@ -1,5 +1,4 @@
 USE adlister_db;
-DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL ,
@@ -16,3 +15,8 @@ CREATE TABLE IF NOT EXISTS ads (
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
+INSERT INTO ads (id, user_id, title, description)
+VALUES (1,1,'playstation for sale', 'This is a slightly used playstation'),
+       (2,1,'Super Nintendo', 'Get your game on with this old-school classic!'),
+       (3,2,'Junior Java Developer Position', 'Minimum 7 years of experience required. You will be working in the scripting language for Java, JavaScript'),
+       (4,2, 'Javascript Developer needed', 'Must have strong Java skills');
